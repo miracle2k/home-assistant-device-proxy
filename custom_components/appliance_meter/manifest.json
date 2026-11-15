@@ -1,0 +1,20 @@
+{
+  "domain": "appliance_meter",
+  "name": "Device Proxy",
+  "codeowners": [
+    "@miracle2k"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ],
+  "documentation": "https://github.com/miracle2k/home-assistant-device-proxy",
+  "integration_type": "hub",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/miracle2k/home-assistant-device-proxy/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.3.0"
+}

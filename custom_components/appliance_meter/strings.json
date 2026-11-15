@@ -1,0 +1,154 @@
+{
+  "title": "Device Proxy",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Create a virtual device",
+        "description": "Name the machine, location, or item whose history you want to keep. Choose a physical device to supply its readings and optional on/off controls. The source stays paired to its existing integration.",
+        "data": {
+          "name": "Virtual device name",
+          "device_id": "Physical source device"
+        }
+      },
+      "readings": {
+        "title": "Choose readings and optional controls",
+        "description": "Sensors and binary sensors are selected by default. On/off switches are optional. Select a switch to let this virtual device control the mapped physical switch after final confirmation.",
+        "data": {
+          "readings": "Readings to create"
+        }
+      },
+      "behaviour": {
+        "title": "Choose handling for new readings",
+        "description": "Defaults follow Home Assistant state classes. Mirror copies the source value, including a raw counter lifetime value. Allocate counter increases keeps a separate consumption total for this virtual device. Signed changes are for net counters that can go up and down. Existing reading types and units stay fixed. Switches mirror their state and forward on/off commands.",
+        "data": {
+          "modes": "Reading and control handling"
+        }
+      },
+      "confirm": {
+        "title": "Confirm the change",
+        "description": "{review}",
+        "data": {
+          "confirm": "I have reviewed the mapping. Apply this change."
+        }
+      }
+    },
+    "error": {
+      "invalid_name": "Enter a name of 1 to 80 characters on one line.",
+      "duplicate_name": "Another virtual device already uses this name.",
+      "unknown_source": "The physical source no longer exists. Choose another device.",
+      "no_readings": "This device has no enabled sensor, binary sensor, or on/off switch entities to proxy.",
+      "choose_readings": "Choose at least one reading.",
+      "invalid_mapping": "Choose compatible source readings from the selected physical device.",
+      "duplicate_source": "Each source reading can feed only one virtual reading.",
+      "invalid_mode": "Choose a supported handling mode for each new reading.",
+      "confirmation_required": "Review the mapping and check the confirmation box before applying it.",
+      "configuration_changed": "Another change was applied while this review was open. Close this dialog and start a new review. Nothing from this review was applied.",
+      "source_changed": "A selected source was removed, disabled, or changed type. Close this dialog and review the mapping again.",
+      "save_failed": "The change could not be saved. The previous assignment and mapping are kept. Try again after fixing the storage problem."
+    },
+    "abort": {
+      "already_configured": "Device Proxy is already set up. Use Configure to create or reassign virtual devices.",
+      "single_instance_allowed": "Device Proxy is already set up. Use Configure to create or reassign virtual devices.",
+      "source_changed": "A selected source was removed, disabled, or changed type. Close this dialog and review the mapping again.",
+      "not_ready": "Device Proxy is not loaded. Resolve its setup or storage error before changing assignments."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Manage virtual devices",
+        "description": "All assignment and mapping changes require a review and confirmation.",
+        "menu_options": {
+          "reassign": "Reassign a virtual device",
+          "create": "Create a virtual device",
+          "unassign": "Unassign a virtual device",
+          "rename": "Rename a virtual device"
+        }
+      },
+      "create": {
+        "title": "Create a virtual device",
+        "description": "Choose its name and first physical source. A review and confirmation are required before anything is created.",
+        "data": {
+          "name": "Virtual device name",
+          "device_id": "Physical source device"
+        }
+      },
+      "readings": {
+        "title": "Choose readings and optional controls",
+        "description": "Sensors and binary sensors are selected by default. On/off switches are optional. Select a switch to let this virtual device control the mapped physical switch after final confirmation.",
+        "data": {
+          "readings": "Readings to create"
+        }
+      },
+      "behaviour": {
+        "title": "Choose handling for new readings",
+        "description": "Defaults follow Home Assistant state classes. Mirror copies the source value, including a raw counter lifetime value. Allocate counter increases keeps a separate consumption total for this virtual device. Signed changes are for net counters that can go up and down. Existing reading types and units stay fixed. Switches mirror their state and forward on/off commands.",
+        "data": {
+          "modes": "Reading and control handling"
+        }
+      },
+      "target": {
+        "title": "Choose a virtual device",
+        "description": "Its device identity, existing entity IDs, history, and totals will be kept.",
+        "data": {
+          "target": "Virtual device"
+        }
+      },
+      "device": {
+        "title": "Choose the physical source",
+        "description": "You can reuse a known device or choose a different one. The current assignment stays active until you finish the mapping review and confirm.",
+        "data": {
+          "device_id": "Physical source device"
+        }
+      },
+      "mapping": {
+        "title": "Review the source mapping",
+        "description": "Map readings for **{target}** from **{source}**. Saved mappings are reused when compatible. A new match is proposed only when it is unambiguous. Unmapped readings keep their history and become unavailable; allocated counter totals remain visible. Every assignment requires the final confirmation. Switch mappings also route on/off commands to the selected physical device.",
+        "data": {
+          "mapping": "Virtual readings → source readings"
+        }
+      },
+      "extras": {
+        "title": "Additional readings and optional controls",
+        "description": "These source entities are not used by the mapping. Select any to add to the virtual device. Selecting an on/off switch enables control of that physical switch after final confirmation. Leave extras unselected to ignore them. Existing readings and histories are kept.",
+        "data": {
+          "readings": "Add readings or on/off controls (optional)"
+        }
+      },
+      "confirm": {
+        "title": "Confirm the change",
+        "description": "{review}",
+        "data": {
+          "confirm": "I have reviewed the mapping. Apply this change."
+        }
+      },
+      "name": {
+        "title": "Rename the virtual device",
+        "description": "Entity IDs, mappings, assignments, and recorded history are kept.",
+        "data": {
+          "name": "Virtual device name"
+        }
+      }
+    },
+    "error": {
+      "invalid_name": "Enter a name of 1 to 80 characters on one line.",
+      "duplicate_name": "Another virtual device already uses this name.",
+      "unknown_source": "The physical source no longer exists. Choose another device.",
+      "no_readings": "This device has no enabled sensor, binary sensor, or on/off switch entities to proxy.",
+      "choose_readings": "Choose at least one reading.",
+      "invalid_mapping": "Choose compatible source readings from the selected physical device.",
+      "duplicate_source": "Each source reading can feed only one virtual reading.",
+      "invalid_mode": "Choose a supported handling mode for each new reading.",
+      "confirmation_required": "Review the mapping and check the confirmation box before applying it.",
+      "configuration_changed": "Another change was applied while this review was open. Close this dialog and start a new review. Nothing from this review was applied.",
+      "source_changed": "A selected source was removed, disabled, or changed type. Close this dialog and review the mapping again.",
+      "save_failed": "The change could not be saved. The previous assignment and mapping are kept. Try again after fixing the storage problem."
+    },
+    "abort": {
+      "already_configured": "Device Proxy is already set up. Use Configure to create or reassign virtual devices.",
+      "single_instance_allowed": "Device Proxy is already set up. Use Configure to create or reassign virtual devices.",
+      "source_changed": "A selected source was removed, disabled, or changed type. Close this dialog and review the mapping again.",
+      "not_ready": "Device Proxy is not loaded. Resolve its setup or storage error before changing assignments."
+    }
+  }
+}
