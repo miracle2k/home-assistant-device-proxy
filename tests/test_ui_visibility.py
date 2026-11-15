@@ -1,11 +1,14 @@
 """Exercise the same filtered subscription as the Integrations page."""
 
+from homeassistant.components import websocket_api
 from homeassistant.components.config import config_entries as config_entries_api
 
 
 async def test_integration_page_lists_proxy_with_configure(hass, entry, hass_ws_client):
     client = await hass_ws_client(hass)
-    config_entries_api.async_setup(hass)
+    websocket_api.async_register_command(
+        hass, config_entries_api.config_entries_subscribe
+    )
     await client.send_json_auto_id(
         {
             "type": "config_entries/subscribe",
